@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+    <head>
+        <title>
+            activity#3
+        </title>
+    </head>
+
+    <body>
+       
+        <h1 id = "demo1"> 
+            Content
+        </h1>
+
+
+        <p>JavaScript can change HTML content.</p>
+
+        <button type="button" onclick='document.getElementById("demo1").innerHTML = "Hello JavaScript!"'>Click Me!</button>
+
+
+        <h1 id = "demo2">
+            Content
+        </h1>
+
+        <p>JavaScript can change the style of an HTML element.</p>
+
+        <button type="button" onclick="document.getElementById('demo2').style.fontFamily='Arial'">Click Me!</button>
+
+
+        <h1 id="demo3">
+            Content
+        </h1>
+
+        <p>JavaScript can hide HTML elements.</p>
+
+        <button type="button" onclick="document.getElementById('demo3').style.display='none'">Click Me!</button>
+
+        <h1 id ="demo4" style="display: none;">
+            Content
+        </h1>
+
+        <p>JavaScript can show HTML elements.</p>
+
+        <button type="button" onclick="document.getElementById('demo4').style.display='block'">Click Me!</button>
+
+        <script>
+            console.log("hello");
+        </script>
+
+        <h2>The window.alert() Method</h2>
+
+        <p>Click the button to show window alert.</p>
+
+        <button onclick="window.alert('welcome to ciit')"> show alert window</button>
+
+        
+
+        <p>
+            x = 5, y = 3; x^y = 
+        </p>
+        <p id="demo"></p>
+       
+
+        <script>
+        // How to create variables:
+        var x;
+        let y;
+        // How to use variables:
+        x = 5; y = 3;
+        
+        let z = x ** y;
+        </script>
+
+        <button type="button" onclick='document.getElementById("demo").innerHTML = z'>Click Me!</button>
+        
+    </body>
+
+</html>
