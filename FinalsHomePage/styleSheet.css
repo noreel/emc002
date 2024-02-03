@@ -125,10 +125,37 @@ h1 {
 
 }
 
+h3 {
+    color: white;
+    font-size: 150px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 100px;
+    
+    text-align: center;
+}
+
 #flex {
     margin: inherit;
     position: absolute;
+    width: 100%;
 
+}
+
+footer {
+    background-color: #f6e0b5;
+    
+    width: 100%;
+    height: max-content;
+    z-index: 999;
+    
+}
+
+footer ul li {
+    line-height: 75px;
+    margin: 0 5px;
 }
 
 @media screen and (max-width: 900px) {
@@ -192,9 +219,9 @@ h1 {
     }
 }
 
-/* [class*="col-"]{
+[class*="col-"]{
     border: solid red 1px;
-} */
+}
 
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
