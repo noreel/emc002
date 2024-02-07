@@ -84,6 +84,33 @@ a.active,a:hover {
     
 }
 
+h1 {
+    color: white;
+    font-size: 250px;
+    text-align: center;
+
+
+}
+
+.catchPhrase {
+    color: white;
+    font-size: 100px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 130px;
+    
+    text-align: center;
+}
+
+#logoNCat {
+    margin: inherit;
+    position: absolute;
+    width: 100%;
+
+}
+
 #aboutPage {
     height: 700px;
     background-color:#66545e;
@@ -117,36 +144,9 @@ div #logForm form {
     background-position: center center;
 }
 
-h1 {
-    color: white;
-    font-size: 250px;
-    text-align: center;
-
-
-}
-
-h3 {
-    color: white;
-    font-size: 150px;
-    text-align: center;
-}
-
-.logo {
-    font-size: 100px;
-    
-    text-align: center;
-}
-
-#flex {
-    margin: inherit;
-    position: absolute;
-    width: 100%;
-
-}
-
 footer {
     background-color: #f6e0b5;
-    
+    bottom: 0;
     width: 100%;
     height: max-content;
     z-index: 999;
@@ -161,33 +161,24 @@ footer ul li {
 @media screen and (max-width: 900px) {
 
     html, body {
-        padding-top: 40px;
-    }
-
-    div ,#introPage{
-        height: 400px;
-        background-image: url(fod.jpg);
-        background-size: cover;
-        background-position: center center;
-        justify-content: center;
+        padding-top: 30px;
     }
 
     .checkbtn {
         display: block;
-        line-height: 70px;
+        line-height: 50px;
     }
     nav {
-        height: 80px;
+        height: 60px;
         
       }
     
     label.logo {
-        line-height: 70px;
+        line-height: 50px;
     }
 
-    ul{
+    nav ul{
         position: fixed;
-        
         width: 100%;
         height: auto;
         background: #e9cf9b;
@@ -196,7 +187,6 @@ footer ul li {
         left: -100%;
         text-align: center;
         transition: all .5s;
-        
     }
 
     nav ul li {
@@ -217,6 +207,35 @@ footer ul li {
     #check:checked ~ ul {
         left: 0;
     }
+
+    /* intro page */
+
+    #introPage{
+        height: 50vw;
+        /* background-image: url(fod.jpg);
+        background-size: cover;
+        background-position: center center;
+        justify-content: center; */
+    }
+
+    .catchPhrase {
+        font-size: 6vw;
+    }
+    
+    .logo {
+        font-size: 11vw;
+        text-align: center;
+    }
+    
+    footer ul li{
+        
+        font-size: 1vw;
+        line-height: 5vw;
+        margin: 0 5px;
+    }
+    
+
+
 }
 
 [class*="col-"]{
