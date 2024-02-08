@@ -81,6 +81,7 @@ a.active,a:hover {
     background-image: url(fod.jpg);
     background-size: cover;
     background-position: center center;
+    background-attachment: fixed;
     
 }
 
@@ -106,10 +107,25 @@ h1 {
 
 #logoNCat {
     margin: inherit;
+    padding-top: 20px;
     position: absolute;
     width: 100%;
 
 }
+
+ #introContent {
+    background-color:rgb(255, 250, 244);
+    height: max-content;
+    width: inherit;
+    
+ }
+
+ #text1 {
+    color: #66545e;
+    font-size: 50px;
+    line-height: 80px;
+    margin: 50px 20% 50px;
+ }
 
 #aboutPage {
     height: 700px;
@@ -156,6 +172,12 @@ footer {
 footer ul li {
     line-height: 60px;
     margin: 0 5px;
+}
+
+footer h2 {
+    text-align: center;
+    color: #66545e;
+    font-size: 60px;
 }
 
 @media screen and (max-width: 900px) {
@@ -211,7 +233,7 @@ footer ul li {
     /* intro page */
 
     #introPage{
-        height: 50vw;
+        height: 55vw;
         /* background-image: url(fod.jpg);
         background-size: cover;
         background-position: center center;
@@ -227,10 +249,17 @@ footer ul li {
         text-align: center;
     }
     
+    #text1 {
+        font-size: 20px;
+        line-height: 45px;
+        text-align:center;
+        color: #66545e;
+    }
+
     footer ul li{
         
-        font-size: 1vw;
-        line-height: 5vw;
+        font-size: 20px;
+        line-height: 30px;
         margin: 0 5px;
     }
     
