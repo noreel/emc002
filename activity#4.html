@@ -2,7 +2,7 @@
 
 
     <head>
-
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     </head>
 
@@ -19,13 +19,13 @@
                 <input type="text" id="psw" name="psw" required>
                 <br>
                 <br>
-            <input type="button" value="Submit" onclick="validateForm()">
+            <input type="button" class="btn btn-primary" value="Submit" onclick="validateForm();">
             </form>
 
-            <p id="demo">asda</p>
+            
         </div>
         
-        <script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
             
             function validateForm() {
                 let user = document.getElementById('user').value
@@ -49,53 +49,53 @@
 
                 if(user_length == 0 || pass_length == 0)
                 {
-                    window.alert("please input proper username or password")
+                    alert("please input proper username or password");
                     return;
                 
                 }
 
                 if(user_length < 6){
-                    window.alert("username must be greater than 6")
+                    alert("username must be greater than 6");
                     return;
                 }
 
                 else if(user_length >= 6){
                     if(specialC >= 0){
                         if(special.test(user)){
-                            window.alert("username must only contain this '_' special character")
+                            window.alert("username must only contain this '_' special character");
                             ruser = false;
                             return;
                         }
                         ruser = true;
                     }
                     else{
-                        window.alert("username must contain '_'")
+                        alert("username must contain '_'");
                         return;
                     }
                     
                 }
 
                 if(pass_length < 8){
-                    window.alert("password must be more than 8")
+                    alert("password must be more than 8");
                 }
 
                 else if(pass_length >= 8) {
                     
                     if(Num.test(pass) && Spec.test(pass)){
                         if(!UpCase.test(pass) || !LoCase.test(pass)){
-                            window.alert("password must contain combination of Uppercase and Lowercase letters")
+                            alert("password must contain combination of Uppercase and Lowercase letters");
                             rpass = false;
                             return;
                         }
                         rpass = true;
                     }
                     else{
-                        window.alert("password must contain numbers and special characters")
+                        alert("password must contain numbers and special characters");
                     }
                 }
 
                 if(rpass == true && ruser == true){
-                    window.alert("logging in")
+                    alert("logging in");
                 }
             }
         

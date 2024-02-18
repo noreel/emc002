@@ -141,6 +141,12 @@ h1 {
     background-position: center center;
 }
 
+.card-img-top {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+}
+
 #logInPage {
     height: 700px;
     
