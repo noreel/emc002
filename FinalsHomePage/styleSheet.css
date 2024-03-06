@@ -147,6 +147,14 @@ h1 {
     background-position: center;
 }
 
+.card-body {
+    background-color: #f6e0b5;
+}
+
+.card-title, .card-text {
+    background-color: #eea990;
+}
+
 #logInPage {
     height: 700px;
     
@@ -277,7 +285,7 @@ footer h2 {
     border: solid red 1px;
 }
 
-.col-1 {width: 8.33%;}
+/* .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
 .col-3 {width: 25%;}
 .col-4 {width: 33.33%;}
@@ -288,4 +296,4 @@ footer h2 {
 .col-9 {width: 75%;}
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
+.col-12 {width: 100%;} */
