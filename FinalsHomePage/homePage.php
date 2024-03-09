@@ -1,3 +1,10 @@
+<?php 
+session_start ();
+if(!isset($_SESSION["login"]))
+
+	header("location:LoginPage.php"); 
+?>
+
 <!DOCTYPE html>
 
     <head>
@@ -37,27 +44,27 @@
 
             <ul>
                 <li>
-                    <a href="homePage.html">
+                    <a href="homePage.php">
                         Home
                     </a>
                 </li>
                 <li>
-                    <a href="AboutPage.html">
+                    <a href="AboutPage.php">
                         About Us
                     </a>
                 </li>
                 <li>
-                    <a href="ShopPage.html">
+                    <a href="ShopPage.php">
                         Order Now
                     </a>
                 </li>
                 <li>
-                    <a href="LogInPage.html">
+                    <a href="LogInPage.php">
                         Log in
                     </a>
                 </li>
                 <li>
-                    <a href="SignUpPage.html">
+                    <a href="SignUpPage.php">
                         Sign Up
                     </a>
                 </li>

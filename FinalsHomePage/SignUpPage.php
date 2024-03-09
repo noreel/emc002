@@ -39,27 +39,27 @@
 
             <ul>
                 <li>
-                    <a href="homePage.html">
+                    <a href="homePage.php">
                         Home
                     </a>
                 </li>
                 <li>
-                    <a href="AboutPage.html">
+                    <a href="AboutPage.php">
                         About Us
                     </a>
                 </li>
                 <li>
-                    <a href="ShopPage.html">
+                    <a href="ShopPage.php">
                         Order Now
                     </a>
                 </li>
                 <li>
-                    <a href="LogInPage.html">
+                    <a href="LogInPage.php">
                         Log in
                     </a>
                 </li>
                 <li>
-                    <a href="SignUpPage.html">
+                    <a href="SignUpPage.php">
                         Sign Up
                     </a>
                 </li>
@@ -74,13 +74,17 @@
             <div class="container">
                 <div class="row justify-content-center my-5">
                     <div class="col-12">
-                        <form name="frmContact" method="post" action="contact.php">
+                        <form name="frmContact" method="post" action="signupProcess.php">
                             <label for="usrname" class="form-label">Username</label>
                             <input type="text" class="form-control" id="user" name="user" required>
                             <br>
                             <br>
                             <label for="psw" class="form-label">Password</label>
                             <input type="text" class="form-control" id="psw" name="psw" required>
+                            <br>
+                            <br>
+                            <label for="cpsw" class="form-label">Confirm Password</label>
+                            <input type="text" class="form-control" id="cpsw" name="cpsw" required>
                             <br>
                             <br>
                             <label for="firstname" class="form-label">First Name</label>
@@ -111,7 +115,6 @@
             <script>
                 
                 function validateForm() {
-                    window.alert("call")
                     let user = document.getElementById('user').value
                     let user_length = user.length
                     
@@ -179,7 +182,7 @@
                     }
     
                     if(rpass == true && ruser == true){
-                        window.alert("logging in")
+                        
                     }
                 }
             

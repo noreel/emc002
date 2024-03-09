@@ -39,27 +39,27 @@
 
             <ul>
                 <li>
-                    <a href="homePage.html">
+                    <a href="homePage.php">
                         Home
                     </a>
                 </li>
                 <li>
-                    <a href="AboutPage.html">
+                    <a href="AboutPage.php">
                         About Us
                     </a>
                 </li>
                 <li>
-                    <a href="ShopPage.html">
+                    <a href="ShopPage.php">
                         Order Now
                     </a>
                 </li>
                 <li>
-                    <a href="LogInPage.html">
+                    <a href="LogInPage.php">
                         Log in
                     </a>
                 </li>
                 <li>
-                    <a href="SignUpPage.html">
+                    <a href="SignUpPage.php">
                         Sign Up
                     </a>
                 </li>
@@ -73,29 +73,24 @@
             </h2>
             <div class="container">
                 <div class="col-12">
-                    <form>
+                    <form action="C:\xampp\htdocs\emc002\loginprocess.php" method="POST">
                         <label for="usrname">Username</label>
-                        <input type="text" id="user" name="usrname" required>
+                        <input type="text" id="user" name="uname" required>
                         <br>
                         <br>
                         <label for="psw">Password</label>
-                        <input type="text" id="psw" name="psw" required>
+                        <input type="text" id="psw" name="upassword" required>
                         <br>
                         <br>
-                        <button class="btn btn-primary btn-lg" type="button" onclick="validateForm()">
+                        <button class="btn btn-primary btn-lg" type="submit" name="sub">
                             Enter
                         </button>
                     </form>
                 </div>
-                
-                
-                  
             </div>
-            
-
         </div>
-        
-        <script>
+            
+        <!-- <script>
             
             function validateForm() {
                     let user = document.getElementById('user').value
@@ -169,7 +164,7 @@
                     }
                 }
 
-        </script>
+        </script> -->
 
     </body>
 
