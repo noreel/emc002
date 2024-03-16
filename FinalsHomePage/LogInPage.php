@@ -73,17 +73,17 @@
             </h2>
             <div class="container">
                 <div class="col-12">
-                    <form action="C:\xampp\htdocs\emc002\loginprocess.php" method="POST">
-                        <label for="usrname">Username</label>
-                        <input type="text" id="user" name="uname" required>
+                    <form action="loginprocess.php" method="POST">
+                        <label for="usrname">Email</label>
+                        <input type="email" id="user" name="email" required>
                         <br>
                         <br>
                         <label for="psw">Password</label>
-                        <input type="text" id="psw" name="upassword" required>
+                        <input type="text" id="psw" name="password" required>
                         <br>
                         <br>
-                        <button class="btn btn-primary btn-lg" type="submit" name="sub">
-                            Enter
+                        <input class="btn btn-primary btn-lg" type="submit" value="Enter" name="log">
+                            
                         </button>
                     </form>
                 </div>

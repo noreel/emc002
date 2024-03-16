@@ -1,8 +1,14 @@
-<?php 
-session_start ();
-if(!isset($_SESSION["login"]))
+<?php
 
-	header("location:LoginPage.php"); 
+session_start();
+
+$user_id = $_SESSION['user_id'];
+
+if(!isset($user_id)){
+
+    $user_id = null;
+ }
+
 ?>
 
 <!DOCTYPE html>
@@ -22,19 +28,21 @@ if(!isset($_SESSION["login"]))
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <link rel="stylesheet" href="styleSheet.css">
-
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
+        <link rel="stylesheet" href="styleSheet.css">
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
     </head>
 
     <body>
         
         <nav>
             
-            <label class="logo">
-                Ronaldo
-            </label>
+            <div class="float-start">
+                <img src="prodpic/lugo.png" alt="Ronaldos's Kitchen" class="img-fluid" style="width: 95px;height: 80px;">
+            </div>
             
             <input type="checkbox" id="check">
 
@@ -70,16 +78,49 @@ if(!isset($_SESSION["login"]))
                 </li>
             </ul>
 
+            <div class="icons">
+                <div id="menu-btn" class="fas fa-bars"></div>
+                <a href="search_page.php" class="fas fa-search"></a>
+                <div id="user-btn" class="fas fa-user"></div>
+
+                <?php
+                    $con = mysqli_connect('localhost', 'root', '','online_store');
+
+                    $select_cart_number = mysqli_query($con, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
+                    $cart_rows_number = mysqli_num_rows($select_cart_number); 
+                ?>
+                <a href="cart.php"> <i class="fas fa-shopping-cart"></i> <span>(<?php echo $cart_rows_number; ?>)</span> </a>
+            </div>
+
+            <div class="user-box">
+                <p>Name: <span><?php 
+                if($user_id != null){
+                    echo $_SESSION['user_name']; 
+                }
+                else{
+                    echo '<p class="empty">.....</p>';
+                }
+                ?></span></p>
+
+                <p>Email: <span><?php
+                if($user_id != null){
+                echo $_SESSION['user_email'];
+                }
+                else{
+                    echo '<p class="empty">.....</p>';
+                } ?></span></p>
+
+                <a href="logout.php" class="delete-btn">LOGOUT</a>
+            </div>
+
         </nav>
         
         <div class="col-12">
             <div class="col-12" id="introPage">
                 <div id="over">
                 </div>
-                <div class="" id="logoNCat">
-                    <h1 class="logo">
-                        Ronaldo's <br> Kitchen
-                    </h1>
+                <div class="container-md-5 text-center" id="logoNCat">
+                    <img class="img-fluid" src="prodpic/lugo.png" alt="Ronaldos's Kitchen">
 
                     <h3 class="catchPhrase">
                         Where every flavor tells a story
@@ -95,7 +136,7 @@ if(!isset($_SESSION["login"]))
         </div>
         
 
-        <footer>
+        <footer >
             <ul>
                 <li>
                     Follow us to catch the latest news on our new dishes!
@@ -116,7 +157,7 @@ if(!isset($_SESSION["login"]))
             </h2>
         </footer>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        <script>
             
         </script>
 

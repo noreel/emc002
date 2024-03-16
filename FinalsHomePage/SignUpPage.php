@@ -76,15 +76,15 @@
                     <div class="col-12">
                         <form name="frmContact" method="post" action="signupProcess.php">
                             <label for="usrname" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="user" name="user" required>
+                            <input type="text" class="form-control" id="uname" name="uname" required>
                             <br>
                             <br>
                             <label for="psw" class="form-label">Password</label>
-                            <input type="text" class="form-control" id="psw" name="psw" required>
+                            <input type="text" class="form-control" id="password" name="password" required>
                             <br>
                             <br>
                             <label for="cpsw" class="form-label">Confirm Password</label>
-                            <input type="text" class="form-control" id="cpsw" name="cpsw" required>
+                            <input type="text" class="form-control" id="cpassword" name="cpassword" required>
                             <br>
                             <br>
                             <label for="firstname" class="form-label">First Name</label>
@@ -106,7 +106,7 @@
                             <label for="email" class="form-label">email</label>
                             <input type="text" class="form-control" name="email" id="email">
                             <br>
-                            <input class="btn btn-primary" type="button" value="Enter" onclick="validateForm()">
+                            <input class="btn btn-primary" type="submit" value="Enter" onclick="validateForm()" name="sub">
                         </form>
                     </div>
                 </div>
@@ -123,13 +123,9 @@
     
                     let pass = document.getElementById('psw').value
                     let pass_length = pass.length
-                    let UpCase = /[A-Z]/;
-                    let LoCase = /[a-z]/
-                    let Num = /[0-9]/;
+                    
                     let Spec = /[^A-Za-z0-9]/;
                     
-    
-                    let specialC = user.search("_");
                     const special = /[`!@#$%^&*()+\-=\[\]{};':"\\|,.<>\/?~]/;
                     
     
@@ -141,47 +137,39 @@
                     
                     }
     
-                    if(user_length < 6){
+                    if(user_length < 6)
+                    {
                         window.alert("username must be greater than 6")
                         return;
                     }
     
-                    else if(user_length >= 6){
-                        if(specialC >= 0){
-                            if(special.test(user)){
-                                window.alert("username must only contain this '_' special character")
-                                ruser = false;
-                                return;
-                            }
-                            ruser = true;
-                        }
-                        else{
-                            window.alert("username must contain '_'")
-                            return;
-                        }
-                        
+                    else if(user_length >= 6)
+                    {
+                        ruser = true;
+                                             
                     }
     
-                    if(pass_length < 8){
+                    if(pass_length < 8)
+                    {
                         window.alert("password must be more than 8")
                     }
     
-                    else if(pass_length >= 8) {
+                    else if(pass_length >= 8) 
+                    {
                         
                         if(Num.test(pass) && Spec.test(pass)){
-                            if(!UpCase.test(pass) || !LoCase.test(pass)){
-                                window.alert("password must contain combination of Uppercase and Lowercase letters")
-                                rpass = false;
-                                return;
-                            }
                             rpass = true;
+                            return;
                         }
                         else{
                             window.alert("password must contain numbers and special characters")
+                            rpass = false;
+                            return;
                         }
                     }
     
-                    if(rpass == true && ruser == true){
+                    if(rpass == true && ruser == true)
+                    {
                         
                     }
                 }
