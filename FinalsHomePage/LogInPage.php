@@ -25,11 +25,11 @@
 
     <body>
         
-        <nav>
+    <nav>
             
-            <label class="logo">
-                Ronaldo
-            </label>
+            <div class="float-start">
+                <img src="prodpic/lugo.png" alt="Ronaldos's Kitchen" class="img-fluid" style="width: 95px;height: 80px;">
+            </div>
             
             <input type="checkbox" id="check">
 
@@ -53,7 +53,7 @@
                         Order Now
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="LogInPage.php">
                         Log in
                     </a>
@@ -62,110 +62,63 @@
                     <a href="SignUpPage.php">
                         Sign Up
                     </a>
-                </li>
+                </li> -->
             </ul>
 
+            
         </nav>
         
         <div class="col-12" id="logInPage">
-            <h2>
-                this is a logInPage
-            </h2>
-            <div class="container">
-                <div class="col-12">
+            <br>
+            <div class="container my-5">
+                <h1 style="color: white;">
+                    Log in now
+                </h1>
+            </div>
+            
+            <div class="justify-content-center">
+                <div class="container-sm my-5" style="width:70vw;">
                     <form action="loginprocess.php" method="POST">
-                        <label for="usrname">Email</label>
-                        <input type="email" id="user" name="email" required>
+                        <label for="user" style="color: white;">Username</label>
+                        <input class="form-control" type="text" id="user" name="username" required>
                         <br>
                         <br>
-                        <label for="psw">Password</label>
-                        <input type="text" id="psw" name="password" required>
+                        <label for="psw" style="color: white;">Password</label>
+                        <input class="form-control" type="text" id="psw" name="password" required>
                         <br>
                         <br>
                         <input class="btn btn-primary btn-lg" type="submit" value="Enter" name="log">
                             
                         </button>
                     </form>
+                    <div class="text-center">
+                        <a href="SignUpPage.php" style="color:white;">
+                            No Account? Create one
+                        </a>
+                    </div>
                 </div>
+                <br>
+                
+                <div class="container text-center">
+                    <?php 
+                        if(isset($_REQUEST["err"]))
+                            $msg="Invalid username or Password";
+                    ?>
+                    <p style="color:#66545e;">
+                        <span style=" background-color:white; padding:10px; border-radius:10px;">
+                            <?php if(isset($msg))
+                                {
+                            
+                                    echo $msg;
+                                }
+                            ?>
+                        </span>
+                    </p>
+                </div>
+
             </div>
         </div>
             
-        <!-- <script>
-            
-            function validateForm() {
-                    let user = document.getElementById('user').value
-                    let user_length = user.length
-                    
-                    let rpass = false;
-                    let ruser = false;
-    
-                    let pass = document.getElementById('psw').value
-                    let pass_length = pass.length
-                    let UpCase = /[A-Z]/;
-                    let LoCase = /[a-z]/
-                    let Num = /[0-9]/;
-                    let Spec = /[^A-Za-z0-9]/;
-                    
-    
-                    let specialC = user.search("_");
-                    const special = /[`!@#$%^&*()+\-=\[\]{};':"\\|,.<>\/?~]/;
-                    
-    
-    
-                    if(user_length == 0 || pass_length == 0)
-                    {
-                        window.alert("please input proper username or password")
-                        return;
-                    
-                    }
-    
-                    if(user_length < 6){
-                        window.alert("username must be greater than 6")
-                        return;
-                    }
-    
-                    else if(user_length >= 6){
-                        if(specialC >= 0){
-                            if(special.test(user)){
-                                window.alert("username must only contain this '_' special character")
-                                ruser = false;
-                                return;
-                            }
-                            ruser = true;
-                        }
-                        else{
-                            window.alert("username must contain '_'")
-                            return;
-                        }
-                        
-                    }
-    
-                    if(pass_length < 8){
-                        window.alert("password must be more than 8")
-                    }
-    
-                    else if(pass_length >= 8) {
-                        
-                        if(Num.test(pass) && Spec.test(pass)){
-                            if(!UpCase.test(pass) || !LoCase.test(pass)){
-                                window.alert("password must contain combination of Uppercase and Lowercase letters")
-                                rpass = false;
-                                return;
-                            }
-                            rpass = true;
-                        }
-                        else{
-                            window.alert("password must contain numbers and special characters")
-                        }
-                    }
-    
-                    if(rpass == true && ruser == true){
-                        window.alert("logging in")
-                    }
-                }
-
-        </script> -->
-
     </body>
 
 </html>

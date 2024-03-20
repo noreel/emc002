@@ -36,11 +36,11 @@ if(!isset($user_id)){
 
     <body id="shopPage">
         
-        <nav>
+    <nav>
             
-            <label class="logo">
-                Ronaldo
-            </label>
+            <div class="float-start">
+                <img src="prodpic/lugo.png" alt="Ronaldos's Kitchen" class="img-fluid" style="width: 95px;height: 80px;">
+            </div>
             
             <input type="checkbox" id="check">
 
@@ -64,63 +64,159 @@ if(!isset($user_id)){
                         Order Now
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="LogInPage.php">
                         Log in
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="SignUpPage.php">
                         Sign Up
                     </a>
                 </li>
+                <li>
+                    <div class="container">
+                        <button class="btn btn-success btn-md dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            user
+                        </button>
+                        <ul class="dropdown-menu">
+                            <?php
+                                $con = mysqli_connect('localhost', 'root', '','online_store');
+
+                                $select_cart_number = mysqli_query($con, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
+                                $cart_rows_number = mysqli_num_rows($select_cart_number); 
+                            ?>
+                            
+                            <p>Name: <span><?php echo $_SESSION['user_name']; ?></span></p>
+                        
+                            <p>Email: <span><?php echo $_SESSION['user_email']; ?></span></p>
+                        
+                            <a href="logout.php" class="delete-btn">LOGOUT</a>
+                            
+                        </ul>
+                    </div>
+                </li>
             </ul>
 
-        </nav>
-        <div class="container">
-            <div class="col-12" i>
-                <h1>
-                    this is the order page
-                </h1>
+            <!-- <div class="icons">
+                <div id="user-btn" class="fas fa-user"></div>
+                <?php
+                    $con = mysqli_connect('localhost', 'root', '','online_store');
+
+                    $select_cart_number = mysqli_query($con, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
+                    $cart_rows_number = mysqli_num_rows($select_cart_number); 
+                ?>
+                <a href="cart.php"> <i class="fas fa-shopping-cart"></i> <span>(<?php echo $cart_rows_number; ?>)</span> </a>
             </div>
-        </div>
-        
-        <div class="container" style="margin: 20px auto 20px;">
-            <!-- <div class="grid"> -->
-                <div class="row gx-5 gy-5">
-                    
-                    <?php
-                        $con = mysqli_connect('localhost', 'root', '','online_store');
 
-                        $select_products = mysqli_query($con, "SELECT * FROM `products`") or die('query failed');
-                        if(mysqli_num_rows($select_products) > 0){
-                            while($fetch_products = mysqli_fetch_assoc($select_products)){
-                    ?>
-                        <div class="col-12 col-md-6 col-lg-3">
-                            <div class="card">
-                                <div class="image">
-                                    <img src="prodpic\<?php echo $fetch_products['image']; ?>" class="card-img-top" alt="<?php echo $fetch_products['image']; ?>">
-                                </div>
+            <div class="user-box">
+                <p>Name: <span><?php echo $_SESSION['user_name']; ?></span></p>
+                <p>Email: <span><?php echo $_SESSION['user_email']; ?></span></p>
+                <a href="logout.php" class="delete-btn">LOGOUT</a>
+            </div> -->
 
-                                <div class="card-body">
-                                    <h5 class="card-title"><?php echo $fetch_products['itemname']; ?></h5>
-                                    <p class="card-text"><?php echo $fetch_products['description']; ?></p>
-                                    <p class="card-text"><?php echo $fetch_products['price']; ?></p>
-                                    <a href="#" class="btn btn-primary">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>    
-                    <?php
-                            }
-                        }else{
-                            echo '<p class="empty">.....</p>';
-                        }
-                    ?>    
-                    
+        </nav>
+
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                <img src="prodpic/slide1.jpg" class="d-block w-100 h-200" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>Have a taste of flavorful dishes</h2>
                     
                 </div>
-            <!-- </div> -->
+                </div>
+                <div class="carousel-item">
+                <img src="prodpic/slide2.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>Coming Soon!</h2>
+                    
+                </div>
+                </div>
+                <div class="carousel-item">
+                <img src="prodpic/slide3.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>Coming Soon!</h2>
+                    
+                </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
+
+        <h1 class="text-center my-5">
+            What We Serve
+        </h1>
+        
+        <div class="container" style="margin: 20px auto 20px;">
+            
+            <div class="row gx-5 gy-5">
+                
+                <?php
+                    $con = mysqli_connect('localhost', 'root', '','online_store');
+
+                    $select_products = mysqli_query($con, "SELECT * FROM `products`") or die('query failed');
+                    if(mysqli_num_rows($select_products) > 0){
+                        while($fetch_products = mysqli_fetch_assoc($select_products)){
+                ?>
+                    <div class="col-12 col-md-6 col-xl-3">
+                        <div class="card">
+                            <div class="image">
+                                <img src="prodpic\<?php echo $fetch_products['image']; ?>" class="card-img-top" alt="<?php echo $fetch_products['image']; ?>">
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $fetch_products['itemname']; ?></h5>
+                                <p class="card-text"><?php echo $fetch_products['description']; ?></p>
+                                <p class="card-text"><?php echo $fetch_products['price']; ?></p>
+                                <a href="#" class="btn btn-primary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>    
+                <?php
+                        }
+                    }else{
+                        echo '<p class="empty">.....</p>';
+                    }
+                ?>    
+                
+                
+            </div>
+            
+        </div>
+
+        <footer >
+            <ul>
+                <li>
+                    Follow us to catch the latest news on our new dishes!
+                </li>
+                <li>
+                    fb.com
+                </li>
+                <li>
+                    instagram.com
+                </li>
+                <li>
+                    twitter.com
+                </li>
+            </ul>
+
+            <h2>
+                Thank you for your visit!
+            </h2>
+        </footer>
             
         <script>
             

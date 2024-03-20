@@ -1,3 +1,14 @@
+<?php
+
+session_start();
+
+$user_id = $_SESSION['user_id'];
+
+if(!isset($user_id)){
+   header('location:LoginPage.php');
+}
+?>
+
 <!DOCTYPE html>
 
     <head>
@@ -26,11 +37,11 @@
 
     <body>
         
-        <nav>
+    <nav>
             
-            <label class="logo">
-                Ronaldo
-            </label>
+            <div class="float-start">
+                <img src="prodpic/lugo.png" alt="Ronaldos's Kitchen" class="img-fluid" style="width: 95px;height: 80px;">
+            </div>
             
             <input type="checkbox" id="check">
 
@@ -64,36 +75,81 @@
                         Sign Up
                     </a>
                 </li>
+                <li>
+                    <div class="container">
+                        <button class="btn btn-success btn-md dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            user
+                        </button>
+                        <ul class="dropdown-menu">
+                            <?php
+                                $con = mysqli_connect('localhost', 'root', '','online_store');
+
+                                $select_cart_number = mysqli_query($con, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
+                                $cart_rows_number = mysqli_num_rows($select_cart_number); 
+                            ?>
+                            
+                            <p>Name: <span><?php echo $_SESSION['user_name']; ?></span></p>
+                        
+                            <p>Username: <span><?php echo $_SESSION['user_username']; ?></span></p>
+                        
+                            <a href="logout.php" class="delete-btn">LOGOUT</a>
+                            
+                        </ul>
+                    </div>
+                </li>
             </ul>
 
         </nav>
 
-        <div class="col-12" id="aboutPage">
+        <div class="col-12">
+            <div class="col-12" id="introPage">
+                <div id="over">
+                </div>
+                <div class="container-md-5 text-center" id="logoNCat">
+                    <img class="logo" src="prodpic/lugo.png" alt="Ronaldos's Kitchen">
+
+                    <h3 class="catchPhrase">
+                        Where every flavor tells a story
+                    </h3>
+                </div>
+            </div>
             
         </div>
 
-        <div class="col-12">
-            <div class="container">
-                <h2>
-                    Our story
-                </h2>
-                <p>
-                    Ronaldo’s Kitchen is the brainchild of Chef Ronaldo Linares, a seasoned chef with a flair for blending tradition with innovation. Growing up in a family that cherished good food, Ronaldo’s culinary journey began early. He learned treasured recipes from his parents, grandmother, and even TV celebrities. These formative experiences ignited his love for cooking and inspired him to share his expertise with the world.
-                </p>
-            </div>
-
             <br>
-
-            <div class="container">
+            <br>        
+            <div class="container-fluid text-center" >
                 <h2>
                     Our Philosophy
                 </h2>
-                <p>
+                <p id="text1">
                     At Ronaldo’s Kitchen, we believe that food is more than sustenance—it’s an art form. Our mission is to create memorable dining experiences by infusing every dish with passion, flavor, and authenticity. Whether you’re a seasoned foodie or a curious beginner, our kitchen welcomes you to explore a world of taste sensations
                 </p>
             </div>
             
         </div>
+
+
+        <footer >
+            <ul>
+                <li>
+                    Follow us to catch the latest news on our new dishes!
+                </li>
+                <li>
+                    fb.com
+                </li>
+                <li>
+                    instagram.com
+                </li>
+                <li>
+                    twitter.com
+                </li>
+            </ul>
+
+            <h2>
+                Thank you for your visit!
+            </h2>
+        </footer>
 
     </body>
 

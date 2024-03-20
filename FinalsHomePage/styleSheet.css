@@ -49,12 +49,25 @@ nav ul li {
     margin: 0 5px;
 }
 
-nav ul li a {
+nav ul li a,p {
     color: #66545e;
     font-size: 20px;
     text-transform: uppercase;
     padding: 10px;
     border-radius: 5px;
+}
+
+nav ul li p {
+    color: #66545e;
+    font-size: 15px;
+    text-transform: uppercase;
+    
+}
+
+nav 
+
+hr {
+    width: 50%;
 }
 
 a {
@@ -81,8 +94,9 @@ a.active,a:hover {
     display: none;
 }
 
+
 #introPage {
-    height: 730px;
+    height: 750px;
     
     background-image: url(prodpic/fod.jpg);
     background-size: cover;
@@ -105,11 +119,17 @@ h1 {
     text-align: center;
 }
 
+.logo {
+    height: 70%;
+    width: auto;
+}
+
 #logoNCat {
     margin: inherit;
     padding-top: 20px;
     position: absolute;
-    width: 100%;
+    height: inherit;
+    width: inherit;
 
 }
 
@@ -124,7 +144,7 @@ h1 {
     color: #66545e;
     font-size: 40px;
     line-height: 80px;
-    margin: 50px 20% 50px;
+    margin: 50px 10% 50px;
  }
 
 #aboutPage {
@@ -137,14 +157,12 @@ h1 {
 #shopPage {
     
     height: 730px;
-    background-color:#66545e;
-    
     background-position: center center;
     
 }
 
 .card-img-top {
-    height: 250px;
+    height: auto;
     background-size: cover;
     background-position: center;
 }
@@ -153,14 +171,17 @@ h1 {
     background-color: #f6e0b5;
 }
 
-.card-title, .card-text {
-    background-color: #eea990;
-}
+/* .card-title, .card-text {
+    
+} */
 
 #logInPage {
     height: 700px;
-    opacity: 70%;
-    background-position: center center;
+    margin-top: 20px;
+    background-image: url(prodpic/fod.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 div #logForm form {
@@ -168,11 +189,23 @@ div #logForm form {
     font-size: 30px;
 }
 
+#logInPage .container label {
+    color: white;
+    font-size: 30px;
+}
+
 #signUpPage {
-    height: 700px;
+    height: 100%;
+    background-image: url(prodpic/fod.jpg);
     
-    opacity: 70%;
-    background-position: center center;
+    background-size:cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#signUpPage label {
+    font-size: 20px;
+    color: #fff;
 }
 
 footer {
@@ -193,6 +226,10 @@ footer ul li {
     color: #66545e;
     font-size: 40px;
 }
+
+
+
+
 
 @media screen and (max-width: 1024px) {
 
@@ -249,7 +286,7 @@ footer ul li {
     /* intro page */
 
     #introPage{
-        height: 700px;
+        height: 600px;
         
     }
 
@@ -257,9 +294,11 @@ footer ul li {
         font-size: 50px;
     }
     
-    .logo {
-        font-size: 11vw;
-        text-align: center;
+    
+
+    img.logo {
+        height: 70%;
+        width: auto;
     }
     
     #text1 {
@@ -280,6 +319,23 @@ footer ul li {
 
 }
 
-[class*="col-"]{
-    border: solid red .5px;
+@media screen and (max-width: 500px) {
+
+    #introPage {
+        height: 300px;
+    }
+
+    img.logo {
+        height: 60%;
+        width: auto;
+    }
+
+    .catchPhrase {
+        font-size: 35px;
+    }
 }
+    
+
+/* [class*="col-"]{
+    border: solid red .5px;
+} */

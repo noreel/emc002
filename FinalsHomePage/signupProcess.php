@@ -8,7 +8,7 @@ $con = mysqli_connect('localhost', 'root', '','online_store');
 
 if(isset($_POST['sub'])){
 	// get the post records
-	$uname = $_POST['uname'];
+	$uname = $_POST['username'];
 	$password = $_POST['password'];
 	$cpassword = $_POST['cpassword'];
 	$firstname = $_POST['firstname'];
@@ -23,23 +23,21 @@ if(isset($_POST['sub'])){
 	// $sql = "INSERT INTO `profile` (`username`, `password`, `firstname`, `lastname`, `mobile`, `address`, `email`) VALUES ('$uname', '$password', '$firstname', '$lastname', '$mobile', '$address', '$email')";
 
 	if(mysqli_num_rows($select_users) > 0){
-		$message[] = 'User already exists!';
+		header('location:SignUpPage.php?err=1');
 		
-	}else{
-		if($password != $cpassword){
-		   $message[] = 'Passwords do not match!';
-		}
-		else{
-		   mysqli_query($con, "INSERT INTO `profile` (`username`, `password`, `firstname`, `lastname`, `mobile`, `address`, `email`) VALUES ('$uname', '$password', '$firstname', '$lastname', '$mobile', '$address', '$email')") or die('query failed');
-		   $message[] = 'Registered Successfully!';
-		   header('location:LoginPage.php');
-		}
-	 }
+	}
+		
+	else{
+		mysqli_query($con, "INSERT INTO `profile` (`username`, `password`, `firstname`, `lastname`, `mobile`, `address`, `email`) VALUES ('$uname', '$password', '$firstname', '$lastname', '$mobile', '$address', '$email')") or die('query failed');
+		$message[] = 'Registered Successfully!';
+		header('location:LoginPage.php');
+	}
+	 
 
 }
 ?>
 
-<?php
+<!-- <?php
 if(isset($message)){
    foreach($message as $message){
       echo '
@@ -50,4 +48,4 @@ if(isset($message)){
       ';
    }
 }
-?>
+?> -->
