@@ -75,7 +75,7 @@ if(!isset($user_id)){
                     </a>
                 </li>
                 <li>
-                    <div class="container">
+                <div class="container">
                         <button class="btn btn-success btn-md dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             user
                         </button>
@@ -83,13 +83,13 @@ if(!isset($user_id)){
                             <?php
                                 $con = mysqli_connect('localhost', 'root', '','online_store');
 
-                                $select_cart_number = mysqli_query($con, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
-                                $cart_rows_number = mysqli_num_rows($select_cart_number); 
+                                // $select_profile_number = mysqli_query($con, "SELECT * FROM `profile` WHERE user_id = '$user_id'") or die('query failed');
+                                // $cart_rows_number = mysqli_num_rows($select_profile_number); 
                             ?>
                             
-                            <p>Name: <span><?php echo $_SESSION['user_name']; ?></span></p>
+                            <p>Username: <span><?php echo $_SESSION['username']; ?></span></p>
                         
-                            <p>Email: <span><?php echo $_SESSION['user_email']; ?></span></p>
+                            <p>Email: <span><?php echo $_SESSION['email']; ?></span></p>
                         
                             <a href="logout.php" class="delete-btn">LOGOUT</a>
                             
