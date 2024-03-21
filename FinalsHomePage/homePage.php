@@ -119,7 +119,7 @@ if(!isset($user_id)){
             </div>
             
             <div class="col-12 text-center" id="introContent">
-                <hr>
+                
                 <p id="text1">
                     Ronaldo’s Kitchen is your go-to destination for delicious food delivered right to your doorstep. Whether you’re craving comfort classics or exploring exotic flavors, we’ve got you covered. 
                 </p>

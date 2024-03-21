@@ -7,7 +7,7 @@
 $con = mysqli_connect('localhost', 'root', '','online_store');
 
 if(isset($_POST['sub'])){
-	// get the post records
+	
 	$uname = $_POST['username'];
 	$password = $_POST['password'];
 	$cpassword = $_POST['cpassword'];
@@ -29,7 +29,6 @@ if(isset($_POST['sub'])){
 		
 	else{
 		mysqli_query($con, "INSERT INTO `profile` (`username`, `password`, `firstname`, `lastname`, `mobile`, `address`, `email`) VALUES ('$uname', '$password', '$firstname', '$lastname', '$mobile', '$address', '$email')") or die('query failed');
-		$message[] = 'Registered Successfully!';
 		header('location:LoginPage.php');
 	}
 	 
@@ -37,15 +36,3 @@ if(isset($_POST['sub'])){
 }
 ?>
 
-<!-- <?php
-if(isset($message)){
-   foreach($message as $message){
-      echo '
-      <div class="message">
-         <span>'.$message.'</span>
-         <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
-      </div>
-      ';
-   }
-}
-?> -->
